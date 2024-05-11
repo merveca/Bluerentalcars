@@ -41,9 +41,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    loadData();
+    const fetchData = async () => {
+      await loadData();
+      setLoading(false);
+    };
+  
+    fetchData();
   }, []);
-
+    
   if(loading) return(<LoadingPage/>)
   else
   return (
